@@ -8,7 +8,7 @@ import io.vertx.core.Vertx
 import io.vertx.core.http.HttpServer
 import io.vertx.core.http.HttpServerRequest
 import kotlinx.html.h1
-import mx.com.blackengine.html.commons.Shells
+import mx.com.blackengine.html.commons.HtmlShells
 
 
 class Marketplace : CliktCommand() {
@@ -23,7 +23,7 @@ class Marketplace : CliktCommand() {
             val response = request.response()
             response.putHeader("Content-Type", "text/html")
 
-            val htmlDoc = Shells.createHtmlShell("Marketplace") {
+            val htmlDoc = HtmlShells.createHtmlShell("Marketplace") {
                 h1 {
                     +"Test"
                 }

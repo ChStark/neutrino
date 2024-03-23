@@ -3,7 +3,7 @@ package mx.com.blackengine.html.commons
 import kotlinx.html.*
 import kotlinx.html.dom.*
 
-class Shells {
+class HtmlShells {
     companion object{
         fun createHtmlShell(title: String, block: HtmlBlockTag.() -> Unit): String {
             return createHTMLDocument().html {
