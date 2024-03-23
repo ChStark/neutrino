@@ -4,6 +4,7 @@ import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.option
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
+import mx.com.blackengine.entities.tables.Configs
 import mx.com.blackengine.entities.tables.Users
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -12,7 +13,7 @@ import org.jetbrains.exposed.sql.addLogger
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
-class Automigrate: CliktCommand() {
+class Automigrate : CliktCommand() {
     private val _jdbcUrl by option(envvar = "DATABASE_JDBC_URL")
     private val _username by option(envvar = "DATABASE_USERNAME")
     private val _password by option(envvar = "DATABASE_PASSWORD")
@@ -32,7 +33,7 @@ class Automigrate: CliktCommand() {
 
         transaction {
             addLogger(StdOutSqlLogger)
-            SchemaUtils.create( Users )
+            SchemaUtils.create(Configs, Users)
         }
     }
 }
