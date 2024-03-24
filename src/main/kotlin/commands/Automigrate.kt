@@ -29,9 +29,9 @@ class Automigrate : CliktCommand() {
             transactionIsolation = "TRANSACTION_SERIALIZABLE"
         }
 
-        Database.connect(HikariDataSource(hikariConfig))
+        val db = Database.connect(HikariDataSource(hikariConfig))
 
-        transaction {
+        transaction(db) {
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(Configs, Users)
         }

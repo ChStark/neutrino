@@ -11,7 +11,7 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class TimestampTZColumnType : ColumnType(), IDateColumnType {
+class TimestampTzColumnType : ColumnType(), IDateColumnType {
     override val hasTimePart: Boolean = true
 
     private val utcZoneOffset = ZoneOffset.UTC
@@ -39,7 +39,7 @@ class TimestampTZColumnType : ColumnType(), IDateColumnType {
         return rs.getTimestamp(index, calendarTimeZoneInstance)
     }
 
-    override fun sqlType() = "TIMESTAMP WITH TIME ZONE"
+    override fun sqlType() = "TIMESTAMPTZ"
 
     override fun notNullValueToDB(value: Any): Any {
         if (value !is Instant)
@@ -56,4 +56,4 @@ class TimestampTZColumnType : ColumnType(), IDateColumnType {
  *
  * @param name The column name
  */
-fun Table.timestampWithTimeZone(name: String): Column<Instant> = registerColumn(name, TimestampTZColumnType())
+fun Table.timestampWithTimeZone(name: String): Column<Instant> = registerColumn(name, TimestampTzColumnType())
