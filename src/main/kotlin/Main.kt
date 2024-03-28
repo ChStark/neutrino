@@ -11,6 +11,7 @@ class Neutrino : CliktCommand() {
 fun main(args: Array<String>) = Neutrino()
     .subcommands(
         Automigrate(),
+        DbLocalTest(),
         Backoffice(),
         Marketplace(),
     )

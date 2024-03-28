@@ -1,5 +1,7 @@
 package mx.com.blackengine.entities.columns
 
+import com.github.shamil.Xid
+import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.ColumnType
 import org.jetbrains.exposed.sql.Table
@@ -17,5 +19,5 @@ class CitextColumnType : ColumnType() {
 }
 
 
-fun Table.xid(name: String): Column<String> = registerColumn(name, XidColumnType())
+fun Table.xid(name: String): Column<Xid> = registerColumn(name, XidColumnType())
 fun Table.citext(name: String): Column<String> = registerColumn(name, CitextColumnType())

@@ -2,19 +2,19 @@ package mx.com.blackengine.commands
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.option
+import com.github.shamil.Xid
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
+import mx.com.blackengine.entities.dao.EnumClass
+import mx.com.blackengine.entities.dao.User
 import mx.com.blackengine.entities.tables.Configs
 import mx.com.blackengine.entities.tables.Enums
 import mx.com.blackengine.entities.tables.Users
-import org.jetbrains.exposed.sql.Database
-import org.jetbrains.exposed.sql.SchemaUtils
-import org.jetbrains.exposed.sql.StdOutSqlLogger
-import org.jetbrains.exposed.sql.addLogger
+import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
-class Automigrate : CliktCommand() {
+class DbLocalTest : CliktCommand() {
     private val _jdbcUrl by option(envvar = "DATABASE_JDBC_URL")
     private val _username by option(envvar = "DATABASE_USERNAME")
     private val _password by option(envvar = "DATABASE_PASSWORD")
@@ -34,11 +34,8 @@ class Automigrate : CliktCommand() {
 
         transaction(db) {
             addLogger(StdOutSqlLogger)
-            SchemaUtils.create(
-                Enums,
-                Configs,
-                Users,
-            )
+            val user = User.findById("co2de3pudet91tov6deg")
+            println(user)
         }
     }
 }
