@@ -19,5 +19,5 @@ class CitextColumnType : ColumnType() {
 }
 
 
-fun Table.xid(name: String): Column<Xid> = registerColumn(name, XidColumnType())
+fun Table.xid(name: String): Column<EntityID<Xid>> = registerColumn(name, XidColumnType())
 fun Table.citext(name: String): Column<String> = registerColumn(name, CitextColumnType())

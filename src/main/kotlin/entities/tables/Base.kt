@@ -4,10 +4,8 @@ import com.github.shamil.Xid
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import mx.com.blackengine.entities.columns.*
-import mx.com.blackengine.entities.tables.Users.defaultExpression
-import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IdTable
-import org.jetbrains.exposed.sql.Column
+import org.jetbrains.exposed.dao.id.UUIDTable
 import org.jetbrains.exposed.sql.json.jsonb
 
 object Enums : IdTable<Xid>() {
@@ -62,7 +60,7 @@ object Enums : IdTable<Xid>() {
 object Configs : IdTable<Xid>() {
     override val id = xid("id").defaultExpression(NewXidExpression())
     val key = citext("key")
-    val value = jsonb<ConfigProps>("value", Json { prettyPrint = false }).nullable()
+    val value = jsonb<JsonElement>("value", Json { prettyPrint = false }).nullable()
     val updated = timestampWithTimeZone("updated").defaultExpression(CurrentTimestampExpression())
     override val primaryKey = PrimaryKey(id)
 }
@@ -75,4 +73,8 @@ object Users : TimeAuditedTable<Xid>() {
 object Products : IdTable<Xid>() {
     override val id = xid("id").defaultExpression(NewXidExpression())
     override val primaryKey = PrimaryKey(id)
+}
+
+object Lots : UUIDTable() {
+    val name = text("name").nullable()
 }

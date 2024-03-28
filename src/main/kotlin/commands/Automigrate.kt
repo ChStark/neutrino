@@ -6,6 +6,7 @@ import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import mx.com.blackengine.entities.tables.Configs
 import mx.com.blackengine.entities.tables.Enums
+import mx.com.blackengine.entities.tables.Lots
 import mx.com.blackengine.entities.tables.Users
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -36,6 +37,7 @@ class Automigrate : CliktCommand() {
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(
                 Enums,
+                Lots,
                 Configs,
                 Users,
             )
