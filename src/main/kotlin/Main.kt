@@ -14,5 +14,6 @@ fun main(args: Array<String>) = Neutrino()
         DbLocalTest(),
         Backoffice(),
         Marketplace(),
+        Test(),
     )
     .main(args)

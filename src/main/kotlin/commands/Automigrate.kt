@@ -4,10 +4,7 @@ import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.option
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
-import mx.com.blackengine.entities.tables.Configs
-import mx.com.blackengine.entities.tables.Enums
-import mx.com.blackengine.entities.tables.Lots
-import mx.com.blackengine.entities.tables.Users
+import mx.com.blackengine.entities.tables.*
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.StdOutSqlLogger
@@ -36,9 +33,10 @@ class Automigrate : CliktCommand() {
         transaction(db) {
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(
+                Configs,
                 Enums,
                 Lots,
-                Configs,
+                Products,
                 Users,
             )
         }
