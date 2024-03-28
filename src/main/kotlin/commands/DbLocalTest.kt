@@ -34,7 +34,7 @@ class DbLocalTest : CliktCommand() {
 
         transaction(db) {
             addLogger(StdOutSqlLogger)
-            val user = User.findById("co2de3pudet91tov6deg")
+            val user = User.findById(Xid("co2de3pudet91tov6deg"))
             println(user)
         }
     }

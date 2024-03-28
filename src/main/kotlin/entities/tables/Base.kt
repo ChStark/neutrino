@@ -4,12 +4,13 @@ import com.github.shamil.Xid
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import mx.com.blackengine.entities.columns.*
+import mx.com.blackengine.entities.tables.Users.defaultExpression
 import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IdTable
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.json.jsonb
 
-object Enums : IdTable<String>() {
+object Enums : IdTable<Xid>() {
     override val id = xid("id").defaultExpression(NewXidExpression())
     val addressComponentTypes = citext("address_component_types").nullable()
         .index(isUnique = true, customIndexName = "existing_address_component_type_exception")
@@ -58,19 +59,20 @@ object Enums : IdTable<String>() {
     val props = jsonb<JsonElement>("props", Json { prettyPrint = false })
 }
 
-object Configs : IdTable<String>() {
-    override val id = citext("key")
+object Configs : IdTable<Xid>() {
+    override val id = xid("id").defaultExpression(NewXidExpression())
+    val key = citext("key")
     val value = jsonb<ConfigProps>("value", Json { prettyPrint = false }).nullable()
     val updated = timestampWithTimeZone("updated").defaultExpression(CurrentTimestampExpression())
     override val primaryKey = PrimaryKey(id)
 }
 
-object Users : TimeAuditedTable() {
+object Users : TimeAuditedTable<Xid>() {
     override val id = xid("id").defaultExpression(NewXidExpression())
     override val primaryKey = PrimaryKey(id)
 }
 
-object Products : IdTable<String>() {
+object Products : IdTable<Xid>() {
     override val id = xid("id").defaultExpression(NewXidExpression())
     override val primaryKey = PrimaryKey(id)
 }
