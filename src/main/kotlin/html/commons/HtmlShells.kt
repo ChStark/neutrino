@@ -1,7 +1,8 @@
 package mx.com.blackengine.html.commons
 
 import kotlinx.html.*
-import kotlinx.html.dom.*
+import kotlinx.html.dom.createHTMLDocument
+import kotlinx.html.dom.serialize
 
 class HtmlShells {
     companion object{

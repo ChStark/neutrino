@@ -9,7 +9,6 @@ import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.StdOutSqlLogger
 import org.jetbrains.exposed.sql.addLogger
-import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class Automigrate : CliktCommand() {
@@ -32,9 +31,31 @@ class Automigrate : CliktCommand() {
 
         transaction(db) {
             addLogger(StdOutSqlLogger)
+
             SchemaUtils.create(
                 Configs,
-                Enums,
+                EnumAddressComponentTypes,
+                EnumAttributeTypes,
+                EnumAttributeUnits,
+                EnumCodeScriptTypes,
+                EnumCompanyTypes,
+                EnumDigitalTaxReceiptConceptTypes,
+                EnumDigitalTaxReceiptLogTypes,
+                EnumDigitalTaxReceiptTypes,
+                EnumGoogleAddressComponentTypes,
+                EnumLotTypes,
+                EnumNotificationTypes,
+                EnumOrderLineTypes,
+                EnumOrderLogTypes,
+                EnumOutboundEmailStatuses,
+                EnumOutboundEmailTypes,
+                EnumPaymentProcessors,
+                EnumPriceLogTypes,
+                EnumProductTransactionTypes,
+                EnumProductTypes,
+                EnumRouteLogTypes,
+                EnumTicketEntryTypes,
+                EnumTicketTypes,
                 Lots,
                 Products,
                 Users,
