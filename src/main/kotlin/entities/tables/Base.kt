@@ -3,6 +3,7 @@ package mx.com.blackengine.entities.tables
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import mx.com.blackengine.entities.columns.*
+import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.json.jsonb
 
 object Configs : UUID7Table("config") {
@@ -40,6 +41,31 @@ object Users : TimeAuditedTable("users") {
 object SystemRoles : NameableTimeAuditedTable("system_roles")
 object CompanyRoles : NameableTimeAuditedTable("company_roles") {
     val company = reference("company", Companies)
+}
+
+object UserSystemRoles : Table("user_system_roles") {
+    val user = reference("user", Users)
+    val role = reference("role", SystemRoles)
+}
+
+object UserCompanyRoles : Table("user_company_roles") {
+    val user = reference("user", Users)
+    val role = reference("role", CompanyRoles)
+}
+
+object SalesChannels : NameableTimeAuditedTable("sales_channels") {
+    val company = reference("company", Companies)
+    val props = jsonb<JsonElement>("props", Json { prettyPrint = false }).nullable()
+}
+
+object CustomerGroups : NameableTimeAuditedTable("customer_groups") {
+    val company = reference("company", Companies)
+    val props = jsonb<JsonElement>("props", Json { prettyPrint = false }).nullable()
+}
+
+object UserCustomerGroup : Table("user_customer_groups") {
+    val user = reference("user", Users)
+    val group = reference("group", CustomerGroups)
 }
 
 object Products : TimeAuditedTable("products") {
