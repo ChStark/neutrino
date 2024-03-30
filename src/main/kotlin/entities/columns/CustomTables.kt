@@ -23,6 +23,13 @@ abstract class TimeAuditedTable(name: String = "") : UUID7Table(name) {
     val deleted = timestampWithTimeZone("deleted").nullable()
 }
 
+abstract class NameableTimeAuditedTable(name: String = "") : UUID7Table(name) {
+    val name = citext("name").uniqueIndex()
+    val inserted = timestampWithTimeZone("inserted").defaultExpression(CurrentTimestampExpression())
+    val updated = timestampWithTimeZone("updated").defaultExpression(CurrentTimestampExpression())
+    val deleted = timestampWithTimeZone("deleted").nullable()
+}
+
 open class EnumerableTable(name: String = "") : IdTable<String>(name) {
     override val id: Column<EntityID<String>> = citext("id").entityId()
     val props = jsonb<JsonElement>("props", Json { prettyPrint = false })

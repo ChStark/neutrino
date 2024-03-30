@@ -33,7 +33,7 @@ class Automigrate : CliktCommand() {
             addLogger(StdOutSqlLogger)
 
             SchemaUtils.create(
-                Address,
+                Addresses,
                 AddressComponents,
                 Configs,
                 EnumAddressComponentTypes,

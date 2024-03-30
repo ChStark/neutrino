@@ -5,13 +5,41 @@ import kotlinx.serialization.json.JsonElement
 import mx.com.blackengine.entities.columns.*
 import org.jetbrains.exposed.sql.json.jsonb
 
-object Configs : UUID7Table("configs") {
+object Configs : UUID7Table("config") {
     val key = citext("key")
     val value = jsonb<JsonElement>("value", Json { prettyPrint = false }).nullable()
-    val updated = timestampWithTimeZone("updated").defaultExpression(CurrentTimestampExpression())
+}
+
+object Companies : TimeAuditedTable("companies") {
+    val type = reference("type", EnumCompanyTypes)
+    val legalName = citext("legal_name")
+    val commercialName = citext("commercial_name")
+    val taxId = text("tax_id").uniqueIndex("existing_company_tax_id_exception")
+    val defaultCurrency = reference("default_currency", EnumCurrencyCodes)
+    val parentCompany = reference("parent_company", Companies)
 }
 
 object Users : TimeAuditedTable("users") {
+    val type = reference("type", EnumCustomerTypes)
+    val givenNames = citext("given_names")
+    val lastNames = citext("last_names")
+    val email = citext("email").uniqueIndex("existing_email_exception")
+    val phone = text("phone").uniqueIndex("existing_phone_exception")
+        .check("invalid_phone_exception") { it regexp "^[0-9]{10}$" }
+    val taxId = text("tax_id").uniqueIndex("existing_customer_tax_id_exception").nullable()
+    val totpSecret = text("totp_secret").nullable()
+    val totpEnrolled = timestampWithTimeZone("totp_enrolled").nullable()
+
+    val emailConfirmed = timestampWithTimeZone("email_confirmed").nullable()
+    val phoneConfirmed = timestampWithTimeZone("phone_confirmed").nullable()
+
+    val defaultCompany = reference("default_company", Companies)
+    val defaultAddress = reference("default_address", Addresses)
+}
+
+object SystemRoles : NameableTimeAuditedTable("system_roles")
+object CompanyRoles : NameableTimeAuditedTable("company_roles") {
+    val company = reference("company", Companies)
 }
 
 object Products : TimeAuditedTable("products") {
