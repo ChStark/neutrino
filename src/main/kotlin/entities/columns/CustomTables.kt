@@ -10,14 +10,14 @@ import org.jetbrains.exposed.sql.UUIDColumnType
 import org.jetbrains.exposed.sql.json.jsonb
 import java.util.*
 
-open class MyUUIDTable(name: String = "", columnName: String = "id") : IdTable<UUID>(name) {
+open class UUID7Table(name: String = "", columnName: String = "id") : IdTable<UUID>(name) {
     final override val id: Column<EntityID<UUID>> =
         registerColumn<UUID>(columnName, UUIDColumnType()).clientDefault { UuidCreator.getTimeOrderedEpoch() }
             .entityId()
     final override val primaryKey = PrimaryKey(id)
 }
 
-abstract class TimeAuditedTable(name: String = "") : MyUUIDTable(name) {
+abstract class TimeAuditedTable(name: String = "") : UUID7Table(name) {
     val inserted = timestampWithTimeZone("inserted").defaultExpression(CurrentTimestampExpression())
     val updated = timestampWithTimeZone("updated").defaultExpression(CurrentTimestampExpression())
     val deleted = timestampWithTimeZone("deleted").nullable()
