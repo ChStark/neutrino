@@ -18,6 +18,7 @@ object Companies : InsertedUpdatedDeletedTable("companies") {
     val taxId = text("tax_id").uniqueIndex("existing_company_tax_id_exception")
     val defaultCurrency = reference("default_currency", EnumCurrencyCodes)
     val parentCompany = reference("parent_company", Companies)
+    val rootUser = reference("root_user", Users)
 }
 
 object Users : InsertedUpdatedDeletedTable("users") {

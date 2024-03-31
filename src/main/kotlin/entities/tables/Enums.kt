@@ -18,8 +18,16 @@ object EnumAttributeUnits : EnumerableTable("enum_attribute_units") {
     override val primaryKey = PrimaryKey(id, name = "existing_attribute_unit_exception")
 }
 
-object EnumScriptTypes : EnumerableTable("enum_code_script_types") {
-    override val primaryKey = PrimaryKey(id, name = "existing_code_script_type_exception")
+object EnumScriptTypes : EnumerableTable("enum_script_types") {
+    override val primaryKey = PrimaryKey(id, name = "existing_script_type_exception")
+}
+
+object EnumBotTypes : EnumerableTable("enum_bot_types") {
+    override val primaryKey = PrimaryKey(id, name = "existing_bot_type_exception")
+}
+
+object EnumScriptLanguageTypes : EnumerableTable("enum_script_languages") {
+    override val primaryKey = PrimaryKey(id, name = "existing_script_language_exception")
 }
 
 object EnumCompanyTypes : EnumerableTable("enum_company_types") {

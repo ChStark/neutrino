@@ -17,6 +17,17 @@ open class UUID7Table(name: String = "", columnName: String = "id") : IdTable<UU
     final override val primaryKey = PrimaryKey(id)
 }
 
+abstract class TimestampTable(name: String = "") : UUID7Table(name) {
+    val timestamp = timestampWithTimeZone("timestamp").defaultExpression(CurrentTimestampExpression())
+}
+
+abstract class FiniteEventTable(name: String = "") : UUID7Table(name) {
+    val start = timestampWithTimeZone("start").defaultExpression(CurrentTimestampExpression())
+    val end = timestampWithTimeZone("end").defaultExpression(CurrentTimestampExpression())
+    val stdOutput = jsonb<JsonElement>("std_output", Json.Default)
+    val stdError = jsonb<JsonElement>("std_error", Json.Default)
+}
+
 abstract class InsertedUpdatedTable(name: String = "") : UUID7Table(name) {
     val inserted = timestampWithTimeZone("inserted").defaultExpression(CurrentTimestampExpression())
     val updated = timestampWithTimeZone("updated").defaultExpression(CurrentTimestampExpression())
