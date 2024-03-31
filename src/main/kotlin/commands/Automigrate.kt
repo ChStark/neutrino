@@ -43,7 +43,7 @@ class Automigrate : CliktCommand() {
                 EnumAddressComponentTypes,
                 EnumAttributeTypes,
                 EnumAttributeUnits,
-                EnumCodeScriptTypes,
+                EnumScriptTypes,
                 EnumCompanyTypes,
                 EnumCurrencyCodes,
                 EnumCustomerTypes,

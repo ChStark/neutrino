@@ -67,9 +67,3 @@ object UserCustomerGroup : Table("user_customer_groups") {
     val user = reference("user", Users)
     val group = reference("group", CustomerGroups)
 }
-
-object Products : InsertedUpdatedDeletedTable("products") {
-}
-
-object Lots : InsertedUpdatedDeletedTable("lots") {
-}
