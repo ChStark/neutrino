@@ -9,6 +9,6 @@ import org.jetbrains.exposed.sql.json.jsonb
 
 object ConfigLog : UUID7Table("config_log") {
     val key = citext("key")
-    val value = jsonb<JsonElement>("value", Json { prettyPrint = false }).nullable()
+    val value = jsonb<JsonElement>("value", Json.Default).nullable()
     val timestamp = timestampWithTimeZone("timestamp")
 }

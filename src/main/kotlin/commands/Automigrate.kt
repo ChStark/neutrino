@@ -33,14 +33,20 @@ class Automigrate : CliktCommand() {
             addLogger(StdOutSqlLogger)
 
             SchemaUtils.create(
-                Addresses,
                 AddressComponents,
+                Addresses,
+                Companies,
+                CompanyRoles,
+                ConfigLog,
                 Configs,
+                CustomerGroups,
                 EnumAddressComponentTypes,
                 EnumAttributeTypes,
                 EnumAttributeUnits,
                 EnumCodeScriptTypes,
                 EnumCompanyTypes,
+                EnumCurrencyCodes,
+                EnumCustomerTypes,
                 EnumDigitalTaxReceiptConceptTypes,
                 EnumDigitalTaxReceiptLogTypes,
                 EnumDigitalTaxReceiptTypes,
@@ -59,9 +65,18 @@ class Automigrate : CliktCommand() {
                 EnumTicketEntryTypes,
                 EnumTicketTypes,
                 Lots,
+                NotificationGroups,
+                OtpUsages,
+                OutboundEmails,
+                OutboundSms,
                 Products,
+                SalesChannels,
+                SystemRoles,
+                UserCompanyRoles,
+                UserCustomerGroup,
                 Users,
-            )
+                UserSystemRoles,
+                )
         }
     }
 }

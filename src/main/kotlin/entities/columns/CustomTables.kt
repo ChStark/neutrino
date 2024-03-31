@@ -17,13 +17,13 @@ open class UUID7Table(name: String = "", columnName: String = "id") : IdTable<UU
     final override val primaryKey = PrimaryKey(id)
 }
 
-abstract class TimeAuditedTable(name: String = "") : UUID7Table(name) {
+abstract class InsertedUpdatedDeletedTable(name: String = "") : UUID7Table(name) {
     val inserted = timestampWithTimeZone("inserted").defaultExpression(CurrentTimestampExpression())
     val updated = timestampWithTimeZone("updated").defaultExpression(CurrentTimestampExpression())
     val deleted = timestampWithTimeZone("deleted").nullable()
 }
 
-abstract class NameableTimeAuditedTable(name: String = "") : UUID7Table(name) {
+abstract class NameableInsertedUpdatedDeletedTable(name: String = "") : UUID7Table(name) {
     val name = citext("name").uniqueIndex()
     val inserted = timestampWithTimeZone("inserted").defaultExpression(CurrentTimestampExpression())
     val updated = timestampWithTimeZone("updated").defaultExpression(CurrentTimestampExpression())
@@ -32,5 +32,5 @@ abstract class NameableTimeAuditedTable(name: String = "") : UUID7Table(name) {
 
 open class EnumerableTable(name: String = "") : IdTable<String>(name) {
     override val id: Column<EntityID<String>> = citext("id").entityId()
-    val props = jsonb<JsonElement>("props", Json { prettyPrint = false })
+    val props = jsonb<JsonElement>("props", Json.Default).defaultExpression( EmptyJsonExpression() )
 }

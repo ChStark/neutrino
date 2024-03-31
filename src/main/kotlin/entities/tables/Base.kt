@@ -8,10 +8,10 @@ import org.jetbrains.exposed.sql.json.jsonb
 
 object Configs : UUID7Table("config") {
     val key = citext("key")
-    val value = jsonb<JsonElement>("value", Json { prettyPrint = false }).nullable()
+    val value = jsonb<JsonElement>("value", Json.Default).nullable()
 }
 
-object Companies : TimeAuditedTable("companies") {
+object Companies : InsertedUpdatedDeletedTable("companies") {
     val type = reference("type", EnumCompanyTypes)
     val legalName = citext("legal_name")
     val commercialName = citext("commercial_name")
@@ -20,7 +20,7 @@ object Companies : TimeAuditedTable("companies") {
     val parentCompany = reference("parent_company", Companies)
 }
 
-object Users : TimeAuditedTable("users") {
+object Users : InsertedUpdatedDeletedTable("users") {
     val type = reference("type", EnumCustomerTypes)
     val givenNames = citext("given_names")
     val lastNames = citext("last_names")
@@ -38,8 +38,8 @@ object Users : TimeAuditedTable("users") {
     val defaultAddress = reference("default_address", Addresses)
 }
 
-object SystemRoles : NameableTimeAuditedTable("system_roles")
-object CompanyRoles : NameableTimeAuditedTable("company_roles") {
+object SystemRoles : NameableInsertedUpdatedDeletedTable("system_roles")
+object CompanyRoles : NameableInsertedUpdatedDeletedTable("company_roles") {
     val company = reference("company", Companies)
 }
 
@@ -53,14 +53,14 @@ object UserCompanyRoles : Table("user_company_roles") {
     val role = reference("role", CompanyRoles)
 }
 
-object SalesChannels : NameableTimeAuditedTable("sales_channels") {
+object SalesChannels : NameableInsertedUpdatedDeletedTable("sales_channels") {
     val company = reference("company", Companies)
-    val props = jsonb<JsonElement>("props", Json { prettyPrint = false }).nullable()
+    val props = jsonb<JsonElement>("props", Json.Default).nullable()
 }
 
-object CustomerGroups : NameableTimeAuditedTable("customer_groups") {
+object CustomerGroups : NameableInsertedUpdatedDeletedTable("customer_groups") {
     val company = reference("company", Companies)
-    val props = jsonb<JsonElement>("props", Json { prettyPrint = false }).nullable()
+    val props = jsonb<JsonElement>("props", Json.Default).nullable()
 }
 
 object UserCustomerGroup : Table("user_customer_groups") {
@@ -68,8 +68,8 @@ object UserCustomerGroup : Table("user_customer_groups") {
     val group = reference("group", CustomerGroups)
 }
 
-object Products : TimeAuditedTable("products") {
+object Products : InsertedUpdatedDeletedTable("products") {
 }
 
-object Lots : TimeAuditedTable("lots") {
+object Lots : InsertedUpdatedDeletedTable("lots") {
 }
