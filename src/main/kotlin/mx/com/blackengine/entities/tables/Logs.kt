@@ -2,7 +2,7 @@ package mx.com.blackengine.entities.tables
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
-import mx.com.blackengine.entities.columns.FiniteEventTable
+import mx.com.blackengine.entities.columns.ProcessRunEventTable
 import mx.com.blackengine.entities.columns.TimestampTable
 import mx.com.blackengine.entities.columns.citext
 import org.jetbrains.exposed.sql.json.jsonb
@@ -21,6 +21,11 @@ object PriceLog : TimestampTable("price_log") {
     val props = jsonb<JsonElement>("props", Json.Default)
 }
 
-object BotLog : FiniteEventTable("bot_log"){
+object BotLog : ProcessRunEventTable("bot_log"){
     val botSetup = reference("bot_setup",BotSetups)
+}
+
+object RouteLog : TimestampTable("route_log"){
+    val type = reference("type",EnumRouteLogTypes)
+    val route = reference("type",Routes)
 }

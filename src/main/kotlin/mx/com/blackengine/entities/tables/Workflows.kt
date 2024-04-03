@@ -71,8 +71,8 @@ object Actions : InsertedUpdatedDeletedTable("actions") {
     val currentScript = reference("current_script", Scripts)
 }
 
-object StageActions : InsertedUpdatedDeletedTable("stage_actions"){
-    val stage = reference("stage",Stages)
-    val action = reference("action",Actions)
-    val isStageDefault = bool("is_stage_default").nullable()
+object StageActions : InsertedUpdatedDeletedTable("stage_actions") {
+    val stage = reference("stage", Stages)
+    val action = reference("action", Actions)
+    val isStageDefault = bool("is_stage_default").default(false)
 }

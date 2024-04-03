@@ -24,6 +24,9 @@ abstract class TimestampTable(name: String = "") : UUID7Table(name) {
 abstract class FiniteEventTable(name: String = "") : UUID7Table(name) {
     val start = timestampWithTimeZone("start").defaultExpression(CurrentTimestampExpression())
     val end = timestampWithTimeZone("end").defaultExpression(CurrentTimestampExpression())
+}
+
+abstract class ProcessRunEventTable(name: String = "") : FiniteEventTable(name) {
     val stdOutput = jsonb<JsonElement>("std_output", Json.Default)
     val stdError = jsonb<JsonElement>("std_error", Json.Default)
 }

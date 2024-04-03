@@ -46,6 +46,10 @@ object EnumDigitalTaxReceiptConceptTypes : EnumerableTable("enum_digital_tax_rec
     override val primaryKey = PrimaryKey(id, name = "existing_digital_tax_receipt_concept_type_exception")
 }
 
+object EnumDigitalTaxReceiptConceptUnits : EnumerableTable("enum_digital_tax_receipt_concept_units") {
+    override val primaryKey = PrimaryKey(id, name = "existing_digital_tax_receipt_concept_units_exception")
+}
+
 object EnumDigitalTaxReceiptLogTypes : EnumerableTable("enum_digital_tax_receipt_log_types") {
     override val primaryKey = PrimaryKey(id, name = "existing_digital_tax_receipt_log_type_exception")
 }
@@ -108,4 +112,8 @@ object EnumTicketEntryTypes : EnumerableTable("enum_ticket_entry_types") {
 
 object EnumTicketTypes : EnumerableTable("enum_ticket_types") {
     override val primaryKey = PrimaryKey(id, name = "existing_ticket_type_exception")
+}
+
+object EnumLedgerAccountTypes : EnumerableTable("enum_ledger_account_types") {
+    override val primaryKey = PrimaryKey(id, name = "existing_ledger_account_type_exception")
 }

@@ -1,4 +1,4 @@
-package mx.com.blackengine
+package mx.com.blackengine.mx.com.blackengine
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.core.subcommands
@@ -8,7 +8,7 @@ class Neutrino : CliktCommand() {
     override fun run() = Unit
 }
 
-fun main(args: Array<String>) = Neutrino()
+fun main(args: Array<String>) = mx.com.blackengine.mx.com.blackengine.Neutrino()
     .subcommands(
         Automigrate(),
         DbLocalTest(),
