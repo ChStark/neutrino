@@ -24,7 +24,6 @@ object FormulationRawMaterials : Table("formulation_raw_materials") {
 }
 
 object QualityMetricsCatalog : InsertedUpdatedDeletedTable("quality_metrics_catalog") {
-    val formulation = reference("formulation", Formulations)
     val name = citext("name")
     val unit = reference("unit", EnumUnits)
 }
