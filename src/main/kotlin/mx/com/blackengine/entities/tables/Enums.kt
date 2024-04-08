@@ -14,8 +14,12 @@ object EnumCustomerTypes : EnumerableTable("enum_customer_types") {
     override val primaryKey = PrimaryKey(id, name = "existing_customer_type_exception")
 }
 
-object EnumAttributeUnits : EnumerableTable("enum_attribute_units") {
-    override val primaryKey = PrimaryKey(id, name = "existing_attribute_unit_exception")
+object EnumUnits : EnumerableTable("enum_units") {
+    override val primaryKey = PrimaryKey(id, name = "existing_unit_exception")
+}
+
+object EnumPercentageNatures : EnumerableTable("enum_percentage_natures") {
+    override val primaryKey = PrimaryKey(id, name = "existing_percentage_nature_exception")
 }
 
 object EnumScriptTypes : EnumerableTable("enum_script_types") {

@@ -27,5 +27,5 @@ object BotLog : ProcessRunEventTable("bot_log"){
 
 object RouteLog : TimestampTable("route_log"){
     val type = reference("type",EnumRouteLogTypes)
-    val route = reference("type",Routes)
+    val route = reference("route",Routes)
 }

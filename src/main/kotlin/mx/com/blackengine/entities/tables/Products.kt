@@ -15,6 +15,8 @@ object Products : InsertedUpdatedDeletedTable("products") {
     val slug = citext("slug")
     val sku = citext("sku")
 
+    val warehousingUnit = reference("unit", EnumUnits)
+
     val defaultBin = reference("default_bin", Bins)
     val props = jsonb<JsonElement>("props", Json.Default).nullable()
 }
@@ -29,7 +31,7 @@ object ProductAvailability : InsertedUpdatedTable("product_availability") {
     val product = reference("product", Products)
     val warehouse = reference("warehouse", Warehouses)
     val currentQuantity = double("current_quantity").default(0.0)
-    val currentCommitted = double("current_committed").default(0.0)
+    val currentCommitted = double("current_committed").default(0.0).check { it lessEq currentQuantity }
     val props = jsonb<JsonElement>("props", Json.Default).nullable()
 }
 
