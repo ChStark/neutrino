@@ -1,0 +1,15 @@
+:root {
+    --color-0: #ededed;
+    --color-1: #ffecd6;
+    --color-2: #ffd4a3;
+    --color-3: #ffaa5e;
+    --color-4: #d08159;
+    --color-5: #8d697a;
+    --color-6: #544e68;
+    --color-7: #203c56;
+    --color-8: #0d2b45;
+}
+
+html {
+    background: var(--color-0);
+}
