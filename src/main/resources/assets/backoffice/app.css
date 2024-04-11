@@ -10,6 +10,8 @@
     --color-8: #0d2b45;
 }
 
-html {
-    background: var(--color-0);
+html, body {
+    height: 100%;
+    width: 100vw;
+    /*background: var(--color-0);*/
 }
