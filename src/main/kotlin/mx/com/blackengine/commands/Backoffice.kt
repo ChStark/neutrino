@@ -43,7 +43,7 @@ class Backoffice : CliktCommand() {
         router.route("/").handler(LoggerHandler.create())
         router.route("/assets/*").handler( StaticHandler.create("assets/backoffice") )
 
-        router.get("/").handler(homeHandler())
+        router.get("/").handler(homeHandler(db))
 
         val server: HttpServer? = vertx.createHttpServer()
 

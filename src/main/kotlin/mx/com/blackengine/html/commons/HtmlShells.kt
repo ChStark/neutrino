@@ -19,3 +19,14 @@ fun createTailwindcssHtmxHtmlShell(title: String, mainCssFilePath: String, block
         }
     }.serialize(false)
 }
+
+fun createHTMLDocument(headBlock: HtmlHeadTag.() -> Unit, bodyBlock: HtmlBlockTag.() -> Unit): String {
+    return createHTMLDocument().html {
+        head {
+            headBlock()
+        }
+        body {
+            bodyBlock()
+        }
+    }.serialize(false)
+}
