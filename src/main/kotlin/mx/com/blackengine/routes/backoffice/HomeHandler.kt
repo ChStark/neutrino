@@ -29,7 +29,7 @@ fun homeHandler(db: Database): Handler<RoutingContext> {
                     +"header"
                 }
                 main {
-                    +"main"
+                    customMain()
                 }
                 footer {
                     +"footer"
@@ -38,3 +38,35 @@ fun homeHandler(db: Database): Handler<RoutingContext> {
         }.serialize(false))
     }
 }
+
+private fun MAIN.customMain() {
+    apply {
+        div {
+            +"d1"
+            form {
+                input {
+                    onKeyUp = "alert('hola mundo')"
+                }
+            }
+        }
+        div { +"d2" }
+        div { +"d3" }
+    }
+}
+
+//
+//
+//fun customMain(context: MAIN): MAIN {
+//    return context.apply{
+//        div {
+//            +"d1"
+//            form {
+//                input {
+//                    onKeyUp = "alert('hola mundo')"
+//                }
+//            }
+//        }
+//        div { +"d2" }
+//        div { +"d3" }
+//    }
+//}
