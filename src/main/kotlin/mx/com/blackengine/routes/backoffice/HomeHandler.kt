@@ -7,6 +7,7 @@ import io.vertx.ext.web.RoutingContext
 import kotlinx.html.*
 import kotlinx.html.dom.createHTMLDocument
 import kotlinx.html.dom.serialize
+import mx.com.blackengine.html.backoffice.backofficeHeader
 import org.jetbrains.exposed.sql.Database
 
 fun homeHandler(db: Database): Handler<RoutingContext> {
@@ -21,52 +22,26 @@ fun homeHandler(db: Database): Handler<RoutingContext> {
                 script(src = "https://cdn.tailwindcss.com") {}
                 script(src = "https://unpkg.com/htmx.org@1.9.11") {}
                 link(href = "/assets/app.css", rel = "stylesheet")
+                link(rel = "preconnect", href = "https://fonts.googleapis.com")
+                link(rel = "preconnect", href = "https://fonts.gstatic.com")
+                link(
+                    href = "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap",
+                    rel = "stylesheet"
+                )
             }
             body {
-                classes = setOf("grid")
+                classes = setOf("grid","atkinson-hyperlegible-regular")
                 style = "background-color:var(--color-0); grid-template-columns:1fr; grid-template-rows: auto 1fr auto;"
-                header {
-                    +"header"
+                div {
+                    backofficeHeader()
                 }
-                main {
-                    customMain()
+                div {
+                    +"main"
                 }
-                footer {
+                div {
                     +"footer"
                 }
             }
         }.serialize(false))
     }
 }
-
-private fun MAIN.customMain() {
-    apply {
-        div {
-            +"d1"
-            form {
-                input {
-                    onKeyUp = "alert('hola mundo')"
-                }
-            }
-        }
-        div { +"d2" }
-        div { +"d3" }
-    }
-}
-
-//
-//
-//fun customMain(context: MAIN): MAIN {
-//    return context.apply{
-//        div {
-//            +"d1"
-//            form {
-//                input {
-//                    onKeyUp = "alert('hola mundo')"
-//                }
-//            }
-//        }
-//        div { +"d2" }
-//        div { +"d3" }
-//    }
-//}
