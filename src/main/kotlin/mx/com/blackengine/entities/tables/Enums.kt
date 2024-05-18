@@ -2,6 +2,18 @@ package mx.com.blackengine.entities.tables
 
 import mx.com.blackengine.entities.columns.EnumerableTable
 
+object EnumServerTypes : EnumerableTable("enum_server_types") {
+    override val primaryKey = PrimaryKey(id, name = "existing_server_type_exception")
+}
+
+object EnumServerStatuses : EnumerableTable("enum_server_statuses") {
+    override val primaryKey = PrimaryKey(id, name = "existing_server_status_exception")
+}
+
+object EnumServerRoles : EnumerableTable("enum_server_roles") {
+    override val primaryKey = PrimaryKey(id, name = "existing_server_role_exception")
+}
+
 object EnumAddressComponentTypes : EnumerableTable("enum_address_component_types") {
     override val primaryKey = PrimaryKey(id, name = "existing_address_component_type_exception")
 }
