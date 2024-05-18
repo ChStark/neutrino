@@ -3,7 +3,6 @@ package mx.com.blackengine.entities.tables
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import mx.com.blackengine.entities.columns.*
-import mx.com.blackengine.entities.tables.Servers.nullable
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.json.jsonb
 
@@ -34,7 +33,6 @@ object ServerApps : NameableInsertedUpdatedDeletedTable("server_apps") {
     val server = reference("server", Servers)
     val domain = citext("domain").nullable()
     val ip = citext("ip").nullable()
-    val name = text("name")
 
     init {
         uniqueIndex(columns = arrayOf(server, name))
