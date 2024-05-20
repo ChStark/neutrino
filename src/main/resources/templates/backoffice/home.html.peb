@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Neutrino - Backoffice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="icon" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/assets/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" crossorigin>
+</head>
+<body class="grid" style="grid-template-rows: auto 1fr">
+    <header class="bg-white shadow px-4 py-2 flex flex-row items-center justify-between z-50">
+        <div class="flex flex-row gap-x-2 items-center justify-center">
+            <img class="h-8" src="/assets/images/logo.png" alt="logo">
+            <span>farmatienda.com.mx</span>
+        </div>
+        <div class="flex flex-row gap-x-2 items-center justify-center text-teal-500">
+            <a href="/issues"><i class="ph ph-headset text-xl"></i></a>
+            <a href="/me">Jorge Christopher Garza Sepúlveda</a>
+            <a class="text-red-500" href="/logout"><i class="ph ph-sign-out text-xl"></i></a>
+        </div>
+    </header>
+    <main class="bg-gray-100 grid" style="grid-template-columns: auto 1fr auto; grid-template-rows: 1fr">
+        <div class="bg-white flex flex-col items-start justify-start p-2 shadow text-gray-600 group hover:min-w-36 transition-all gap-y-1">
+            <div class="flex flex-row items-center justify-start hover:bg-teal-100 rounded w-full py-1">
+                <i class="ph ph-desktop text-2xl"></i><span class="hidden group-hover:block">Shortcuts</span>
+            </div>
+            <div class="flex flex-row items-center justify-start hover:bg-teal-100 rounded w-full py-1">
+                <i class="ph ph-columns text-2xl"></i><span class="hidden group-hover:block">Panel</span>
+            </div>
+            <div class="flex flex-row items-center justify-start hover:bg-teal-100 rounded w-full py-1">
+                <i class="ph ph-chart-bar text-2xl"></i><span class="hidden group-hover:block">BI</span>
+            </div>
+            <div class="flex flex-row items-center justify-start hover:bg-teal-100 rounded w-full py-1">
+                <i class="ph ph-shopping-cart text-2xl"></i><span class="hidden group-hover:block">Orders</span>
+            </div>
+            <div class="flex flex-row items-center justify-start hover:bg-teal-100 rounded w-full py-1">
+                <i class="ph ph-barcode text-2xl"></i><span class="hidden group-hover:block">Products</span>
+            </div>
+            <div class="flex flex-row items-center justify-start hover:bg-teal-100 rounded w-full py-1">
+                <i class="ph ph-package text-2xl"></i><span class="hidden group-hover:block">Shipments</span>
+            </div>
+            <div class="flex flex-row items-center justify-start hover:bg-teal-100 rounded w-full py-1">
+                <i class="ph ph-cash-register text-2xl"></i><span class="hidden group-hover:block">Cash Register</span>
+            </div>
+        </div>
+        <div class="flex flex-row items-center justify-start p-4">
+            <div class="border-2 border-dashed border-blue-500 rounded flex flex-col items-center justify-center h-full min-w-24 shadow">
+                <i class="ph ph-plus text-blue-500 text-xl"></i>
+            </div>
+        </div>
+        <div class="flex flex-col items-center justify-start p-2 shadow">
+
+        </div>
+    </main>
+</body>
+</html>
