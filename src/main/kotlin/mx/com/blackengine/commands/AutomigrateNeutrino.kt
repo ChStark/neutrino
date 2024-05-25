@@ -11,7 +11,7 @@ import org.jetbrains.exposed.sql.StdOutSqlLogger
 import org.jetbrains.exposed.sql.addLogger
 import org.jetbrains.exposed.sql.transactions.transaction
 
-class Automigrate : CliktCommand() {
+class AutomigrateNeutrino : CliktCommand() {
     private val _jdbcUrl by option(envvar = "DATABASE_JDBC_URL")
     private val _username by option(envvar = "DATABASE_USERNAME")
     private val _password by option(envvar = "DATABASE_PASSWORD")

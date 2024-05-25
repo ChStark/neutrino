@@ -1,0 +1,44 @@
+<div class="bg-[var(--sylus-sidebar)] flex flex-col items-start justify-start p-2 shadow text-gray-300 group hover:min-w-36 transition-all gap-y-1">
+    <a href="/" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-desktop text-2xl"></i><span class="hidden group-hover:block">Shortcuts</span>
+    </a>
+    <a href="/panel" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-columns text-2xl"></i><span class="hidden group-hover:block">Panel</span>
+    </a>
+    <a href="/orders" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-shopping-cart text-2xl"></i><span class="hidden group-hover:block">Orders</span>
+    </a>
+    <a href="/payments" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-credit-card text-2xl"></i><span class="hidden group-hover:block">Payments</span>
+    </a>
+    <a href="/products" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-barcode text-2xl"></i><span class="hidden group-hover:block">Products</span>
+    </a>
+    <a href="/government-digital-tax-receipts" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-invoice text-2xl"></i><span class="hidden group-hover:block">Gov. Invoices</span>
+    </a>
+    <a href="/shipments" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-package text-2xl"></i><span class="hidden group-hover:block">Shipments</span>
+    </a>
+    <a href="/routes" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-path text-2xl"></i><span class="hidden group-hover:block">Routes</span>
+    </a>
+    <a href="/cash-registers" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-cash-register text-2xl"></i><span class="hidden group-hover:block">Cash Register</span>
+    </a>
+    <a href="/anomalies" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 group-hover:gap-x-1">
+        <i class="ph ph-lifebuoy text-2xl"></i><span class="hidden group-hover:block">Anomalies</span><span class="rounded-full bg-red-500 text-white px-1 text-xs group-hover:text-base ml-[-8px] mt-[-15px] group-hover:ml-0 group-hover:mt-0">5</span>
+    </a>
+
+    <div class="flex flex-row items-center justify-start rounded w-full py-1 flex-grow"></div>
+
+    <a href="/bi" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-chart-bar text-2xl"></i><span class="hidden group-hover:block">BI</span>
+    </a>
+    <a href="/workflows" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-flow-arrow text-2xl"></i><span class="hidden group-hover:block">Workflows</span>
+    </a>
+    <a href="/admin" class="flex flex-row items-center justify-start hover:bg-[var(--sylus-sidebar-light)] rounded w-full p-1 gap-x-1">
+        <i class="ph ph-user-gear text-2xl"></i><span class="hidden group-hover:block">Admin Options</span>
+    </a>
+</div>

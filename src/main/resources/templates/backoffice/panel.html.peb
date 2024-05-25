@@ -1,0 +1,9 @@
+{% extends 'base.html.peb' %}
+
+{% block page %}
+<div class="flex flex-row items-center justify-start p-4">
+    <div class="border-2 border-dashed border-blue-500 rounded flex flex-col items-center justify-center h-full min-w-24 shadow">
+        <i class="ph ph-plus text-blue-500 text-xl"></i>
+    </div>
+</div>
+{% endblock %}

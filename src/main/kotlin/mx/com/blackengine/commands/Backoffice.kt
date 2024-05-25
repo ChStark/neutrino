@@ -12,7 +12,7 @@ import io.vertx.ext.web.Router
 import io.vertx.ext.web.handler.LoggerHandler
 import io.vertx.ext.web.handler.StaticHandler
 import io.vertx.ext.web.templ.pebble.PebbleTemplateEngine
-import mx.com.blackengine.routes.backoffice.homeHandler
+import mx.com.blackengine.routes.backoffice.homeHandlersSetter
 import org.jetbrains.exposed.sql.Database
 
 class Backoffice : CliktCommand() {
@@ -39,12 +39,12 @@ class Backoffice : CliktCommand() {
 
         val vertx = Vertx.vertx()
         val router = Router.router(vertx)
-        val templateEngine = PebbleTemplateEngine.create( vertx )
+        val templateEngine = PebbleTemplateEngine.create(vertx)
 
         router.route("/").handler(LoggerHandler.create())
-        router.route("/assets/*").handler( StaticHandler.create("assets/backoffice") )
+        router.route("/assets/*").handler(StaticHandler.create("assets/backoffice"))
 
-        router.get("/").handler(homeHandler(db,templateEngine))
+        homeHandlersSetter(router, db, templateEngine)
 
         val server: HttpServer? = vertx.createHttpServer()
 

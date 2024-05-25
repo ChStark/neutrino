@@ -1,4 +1,6 @@
 :root {
+    --sylus-sidebar: rgb(30,33,43);
+    --sylus-sidebar-light: rgb(40,43,53);
     --color-0: #ededed;
     --color-1: #ffecd6;
     --color-2: #ffd4a3;

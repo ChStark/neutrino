@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Neutrino - Backoffice{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="icon" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/assets/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" crossorigin>
+</head>
+<body class="grid" style="grid-template-rows: auto 1fr">
+    {% include 'header.html.peb' %}
+    <main class="bg-gray-100 grid" style="grid-template-columns: auto 1fr; grid-template-rows: 1fr">
+        {% include 'regular-sidebar.html.peb' %}
+        {% block page %}{% endblock %}
+    </main>
+</body>
+</html>
