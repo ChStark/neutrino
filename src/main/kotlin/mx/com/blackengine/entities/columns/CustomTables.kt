@@ -3,6 +3,7 @@ package mx.com.blackengine.entities.columns
 import com.github.f4b6a3.uuid.UuidCreator
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
+import mx.com.blackengine.entities.tables.neutrino.Companies
 import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IdTable
 import org.jetbrains.exposed.sql.Column
@@ -60,5 +61,6 @@ abstract class LocationInsertedUpdatedDeletedTable(name: String = "") : UUID7Tab
 
 open class EnumerableTable(name: String = "") : IdTable<String>(name) {
     override val id: Column<EntityID<String>> = citext("id").entityId()
+    val company = reference("company", Companies)
     val props = jsonb<JsonElement>("props", Json.Default).defaultExpression(EmptyJsonExpression())
 }

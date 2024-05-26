@@ -1,4 +1,4 @@
-package mx.com.blackengine.entities.tables
+package mx.com.blackengine.entities.tables.neutrino
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
@@ -22,8 +22,8 @@ object WarehouseProductFlows : UUID7Table("warehouse_product_flows") {
 }
 
 object Bins : NameableInsertedUpdatedDeletedTable("bins"){
-    val warehouse = reference("warehouse",Warehouses)
-    val company = reference("company",Companies).nullable() // in case another company has ownership and we need to restrict consumption
+    val warehouse = reference("warehouse", Warehouses)
+    val company = reference("company", Companies).nullable() // in case another company has ownership and we need to restrict consumption
 
     val props = jsonb<JsonElement>("props", Json.Default).nullable()
 }

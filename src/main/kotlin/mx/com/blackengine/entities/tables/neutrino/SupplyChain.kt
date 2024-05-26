@@ -1,4 +1,4 @@
-package mx.com.blackengine.entities.tables
+package mx.com.blackengine.entities.tables.neutrino
 
 import mx.com.blackengine.entities.columns.InsertedUpdatedDeletedTable
 import mx.com.blackengine.entities.columns.InsertedUpdatedTable

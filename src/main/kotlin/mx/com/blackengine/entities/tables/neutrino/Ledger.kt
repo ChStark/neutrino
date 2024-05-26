@@ -1,11 +1,11 @@
-package mx.com.blackengine.entities.tables
+package mx.com.blackengine.entities.tables.neutrino
 
 import mx.com.blackengine.entities.columns.InsertedUpdatedDeletedTable
 import mx.com.blackengine.entities.columns.TimestampTable
 import mx.com.blackengine.entities.columns.citext
 
 object LedgerAccounts : InsertedUpdatedDeletedTable("ledger_accounts") {
-    val type = reference("type", EnumLedgerAccountTypes) //get the credit nature from the type
+    val type = reference("type", EnumLedgerAccountTypes) //get the credit/debit nature from the type
     val name = citext("name")
 }
 

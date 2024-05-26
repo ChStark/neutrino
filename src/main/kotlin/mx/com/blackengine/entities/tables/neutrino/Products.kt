@@ -1,4 +1,4 @@
-package mx.com.blackengine.entities.tables
+package mx.com.blackengine.entities.tables.neutrino
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement

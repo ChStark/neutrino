@@ -1,4 +1,4 @@
-package mx.com.blackengine.entities.tables
+package mx.com.blackengine.entities.tables.neutrino
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
@@ -57,11 +57,11 @@ object Users : InsertedUpdatedDeletedTable("users") {
 
     val givenNames = citext("given_names")
     val lastNames = citext("last_names")
-    val email = citext("email").uniqueIndex("existing_email_exception")
-    val phone = text("phone").nullable().uniqueIndex("existing_phone_exception")
+    val email = citext("email")
+    val phone = text("phone").nullable()
         .check("invalid_phone_exception") { it regexp "^[0-9]{10}$" }
 
-    val taxId = text("tax_id").uniqueIndex("existing_customer_tax_id_exception").nullable()
+    val taxId = text("tax_id").nullable()
 
     val totpSecret = text("totp_secret").nullable()
     val totpEnrolled = timestampWithTimeZone("totp_enrolled").nullable()

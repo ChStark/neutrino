@@ -1,9 +1,9 @@
 package mx.com.blackengine.entities.dao
 
-import mx.com.blackengine.entities.tables.Configs
-import mx.com.blackengine.entities.tables.Lots
-import mx.com.blackengine.entities.tables.Products
-import mx.com.blackengine.entities.tables.Users
+import mx.com.blackengine.entities.tables.neutrino.Configs
+import mx.com.blackengine.entities.tables.neutrino.Lots
+import mx.com.blackengine.entities.tables.neutrino.Products
+import mx.com.blackengine.entities.tables.neutrino.Users
 import org.jetbrains.exposed.dao.Entity
 import org.jetbrains.exposed.dao.EntityClass
 import org.jetbrains.exposed.dao.id.EntityID

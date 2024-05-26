@@ -1,4 +1,4 @@
-package mx.com.blackengine.entities.tables
+package mx.com.blackengine.entities.tables.neutrino
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
@@ -24,6 +24,7 @@ object NotificationGroups : UUID7Table("notification_groups") {
 
 object OutboundEmails : IdTable<String>("outbound_emails") {
     override val id = char("id", 60).entityId()
+    val company = reference("company", Companies)
     val type = reference("type", EnumOutboundEmailTypes)
     val status = reference("status", EnumOutboundEmailStatuses)
     val timestamp = timestampWithTimeZone("timestamp").defaultExpression(CurrentTimestampExpression())
@@ -33,6 +34,7 @@ object OutboundEmails : IdTable<String>("outbound_emails") {
 }
 
 object OutboundSms : UUID7Table("outbound_sms") {
+    val company = OutboundEmails.reference("company", Companies)
     val status = text("status").nullable()
     val timestamp = timestampWithTimeZone("timestamp").nullable()
     val phone = text("phone").nullable()

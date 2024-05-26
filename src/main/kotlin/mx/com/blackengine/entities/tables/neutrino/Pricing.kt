@@ -1,4 +1,4 @@
-package mx.com.blackengine.entities.tables
+package mx.com.blackengine.entities.tables.neutrino
 
 import kotlinx.serialization.json.Json
 import mx.com.blackengine.entities.columns.Price
@@ -13,5 +13,8 @@ object Prices : UUID7Table("prices") {
     val precedence = integer("precedence").default(0) //the bigger the value the important the price
     val isDefault = bool("is_default").nullable()
 
-    val customerGroup = reference("customer_group",CustomerGroups)
+    val customerGroup = reference("customer_group", CustomerGroups).nullable()
+    val paymentMethod = reference("payment_method",EnumPaymentMethods).nullable()
+    val warehouse = reference("warehouse",Warehouses).nullable()
+    val salesChannel = reference("sales_channel", SalesChannels).nullable()
 }

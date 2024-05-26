@@ -1,4 +1,4 @@
-package mx.com.blackengine.entities.tables
+package mx.com.blackengine.entities.tables.neutrino
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
@@ -22,10 +22,10 @@ object PriceLog : TimestampTable("price_log") {
 }
 
 object BotLog : ProcessRunEventTable("bot_log"){
-    val botSetup = reference("bot_setup",BotSetups)
+    val botSetup = reference("bot_setup", BotSetups)
 }
 
 object RouteLog : TimestampTable("route_log"){
-    val type = reference("type",EnumRouteLogTypes)
-    val route = reference("route",Routes)
+    val type = reference("type", EnumRouteLogTypes)
+    val route = reference("route", Routes)
 }
