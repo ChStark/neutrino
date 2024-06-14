@@ -6,7 +6,7 @@ import io.vertx.ext.web.Router
 import io.vertx.ext.web.templ.pebble.PebbleTemplateEngine
 import org.jetbrains.exposed.sql.Database
 
-fun homeHandlersSetter(router: Router, db: Database, templateEngine: PebbleTemplateEngine) {
+fun mainHandlersSetter(router: Router, db: Database, templateEngine: PebbleTemplateEngine) {
     router.get("/").handler { ctx ->
         ctx.response().putHeader(HttpHeaders.CONTENT_TYPE, MediaType.HTML_UTF_8.toString())
 
