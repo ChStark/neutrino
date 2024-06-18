@@ -1,0 +1,7 @@
+{% extends 'base.html.peb' %}
+
+{% block page %}
+<div class="flex flex-row items-center justify-start p-4">
+    <span>shortcuts go here</span>
+</div>
+{% endblock %}

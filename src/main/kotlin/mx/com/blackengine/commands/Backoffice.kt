@@ -46,6 +46,8 @@ class Backoffice : CliktCommand() {
         router.route("/").handler(LoggerHandler.create())
         router.route("/assets/*").handler(StaticHandler.create("assets/backoffice"))
 
+
+
         mainHandlersSetter(router, db, templateEngine)
         pageHandlersSetter(router, db, templateEngine)
         formHandlersSetter(router, db, templateEngine)
